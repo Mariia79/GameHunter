@@ -49,8 +49,8 @@ namespace GameHunter
         public Deer(TargetTypes type, Point p) : base(type, p)
         {
             LengthToEnemy = 110;
-            Width = 60;
-            Height = 60;
+            Width = 40;
+            Height = 40;
             ImageFolder = "deer";
             Step = 5;
         }
