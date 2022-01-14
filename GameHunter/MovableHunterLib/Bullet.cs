@@ -91,32 +91,5 @@ namespace GameHunter
             }
         }
 
-
-        //public override void CheckEnvironment()
-        //{
-
-        //    Target killedAnimal = null;
-
-        //    if (Game.Targets == null)
-        //        return;
-
-        //    foreach (Target t in Game.Targets)
-        //    {
-        //        if (this.IsIntersection(t))
-        //        {
-        //            killedAnimal = t;
-        //            break;
-        //        }
-        //    }
-
-        //    if (killedAnimal != null)
-        //    {
-        //        killedAnimal.Die();
-        //        if (Game.hunter != null)
-        //            Game.hunter.HitCount++;
-
-        //        this.Die();
-        //    }
-        //}
     }
 }
