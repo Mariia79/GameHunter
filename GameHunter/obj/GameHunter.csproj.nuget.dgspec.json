@@ -4,6 +4,21 @@
     "D:\\Projects\\GameHunterSteering\\GameHunter\\GameHunter.csproj": {}
   },
   "projects": {
+    "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj",
+        "projectName": "AnimalsWalk",
+        "projectPath": "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "D:\\Projects\\GameHunterSteering\\GameHunter\\GameHunter.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -32,7 +47,11 @@
         "frameworks": {
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj": {
+                "projectPath": "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -44,6 +63,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

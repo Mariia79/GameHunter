@@ -52,3 +52,16 @@ D:\Projects\GameHunterSteering\GameHunter\obj\Debug\net5.0-windows\GameHunter.dl
 D:\Projects\GameHunterSteering\GameHunter\obj\Debug\net5.0-windows\ref\GameHunter.dll
 D:\Projects\GameHunterSteering\GameHunter\obj\Debug\net5.0-windows\GameHunter.pdb
 D:\Projects\GameHunterSteering\GameHunter\obj\Debug\net5.0-windows\GameHunter.genruntimeconfig.cache
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Json.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.UserSecrets.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Microsoft.Extensions.Primitives.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Animals.dll
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Animals.pdb
+D:\Projects\GameHunterSteering\GameHunter\bin\Debug\net5.0-windows\Animals.exe.config
+D:\Projects\GameHunterSteering\GameHunter\obj\Debug\net5.0-windows\GameHunter.csproj.CopyComplete
