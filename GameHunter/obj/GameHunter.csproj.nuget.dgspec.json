@@ -4,11 +4,11 @@
     "D:\\Projects\\GameHunterSteering\\GameHunter\\GameHunter.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj": {
+    "D:\\Projects\\GameHunterSteering\\Animals\\SteeringObjects.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj",
-        "projectName": "AnimalsWalk",
-        "projectPath": "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj",
+        "projectUniqueName": "D:\\Projects\\GameHunterSteering\\Animals\\SteeringObjects.csproj",
+        "projectName": "SteeringObjects",
+        "projectPath": "D:\\Projects\\GameHunterSteering\\Animals\\SteeringObjects.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -48,8 +48,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj": {
-                "projectPath": "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj"
+              "D:\\Projects\\GameHunterSteering\\Animals\\SteeringObjects.csproj": {
+                "projectPath": "D:\\Projects\\GameHunterSteering\\Animals\\SteeringObjects.csproj"
               }
             }
           }

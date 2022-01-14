@@ -13,22 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Animals\AnimalsWalk.csproj" />
+    <ProjectReference Include="..\Animals\SteeringObjects.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Models\Deer.cs" />
-    <Compile Update="Models\Wolf.cs">
+    <Compile Update="MovableHunterLib\Sprite.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Models\Sprite.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Models\Bullet.cs" />
-    <Compile Update="Models\AutoMovedSprite.cs" />
-    <Compile Update="Models\Rabbit.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="MovableHunterLib\Bullet.cs" />
+    <Compile Update="MovableHunterLib\AutoMovedSprite.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

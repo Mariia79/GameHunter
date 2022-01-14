@@ -52,7 +52,6 @@ namespace GameHunter
             Game.GameField.Controls.Remove(this);
             Game.hunter = null;
             base.Die();
-            Game.OnChangeGame();
         }
 
 

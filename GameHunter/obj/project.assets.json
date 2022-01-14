@@ -121,13 +121,13 @@
           "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
         }
       },
-      "AnimalsWalk/1.0.0": {
+      "SteeringObjects/1.0.0": {
         "type": "project",
         "compile": {
-          "bin/placeholder/AnimalsWalk.dll": {}
+          "bin/placeholder/SteeringObjects.dll": {}
         },
         "runtime": {
-          "bin/placeholder/AnimalsWalk.dll": {}
+          "bin/placeholder/SteeringObjects.dll": {}
         }
       }
     }
@@ -319,16 +319,16 @@
         "version.txt"
       ]
     },
-    "AnimalsWalk/1.0.0": {
+    "SteeringObjects/1.0.0": {
       "type": "project",
-      "path": "../Animals/AnimalsWalk.csproj",
-      "msbuildProject": "../Animals/AnimalsWalk.csproj"
+      "path": "../Animals/SteeringObjects.csproj",
+      "msbuildProject": "../Animals/SteeringObjects.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "AnimalsWalk >= 1.0.0",
-      "Microsoft.Extensions.Configuration.UserSecrets >= 5.0.0"
+      "Microsoft.Extensions.Configuration.UserSecrets >= 5.0.0",
+      "SteeringObjects >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -365,8 +365,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj": {
-              "projectPath": "D:\\Projects\\GameHunterSteering\\Animals\\AnimalsWalk.csproj"
+            "D:\\Projects\\GameHunterSteering\\Animals\\SteeringObjects.csproj": {
+              "projectPath": "D:\\Projects\\GameHunterSteering\\Animals\\SteeringObjects.csproj"
             }
           }
         }
