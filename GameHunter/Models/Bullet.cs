@@ -7,6 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ComponentModel;
+using Animals;
+using System.Numerics;
 
 namespace GameHunter
 {
@@ -34,7 +36,7 @@ namespace GameHunter
             if (image == null)
             {
                 image = new Bitmap(Environment.CurrentDirectory + "\\images\\bullet\\bullet.png");
-               
+
             }
             BackgroundImage = image;
             Invalidate();
@@ -55,26 +57,66 @@ namespace GameHunter
         public override void CheckEnvironment()
         {
 
-            Target killedAnimal = null;
-            foreach (Target t in Game.Targets)
+            Animal Target = null;
+
+
+            if (GameAnimals.animals == null)
+                return;
+
+            foreach (Animal t in GameAnimals.animals)
             {
-                if (this.IsIntersection(t))
+                if (t is Hunter)
+                    continue;
+
+                if (Vector2.Distance(t.Pos, new Vector2(this.Center.X, this.Center.Y)) < 50)
                 {
-                    killedAnimal = t; 
-                    break;    
+                    Target = t;
+                    break;
                 }
             }
 
-            if (killedAnimal != null)
+            if (Target != null)
             {
-                killedAnimal.Die();
+
                 if (Game.hunter != null)
                     Game.hunter.HitCount++;
+
+                GameAnimals.animals.Remove(Target);
+                if (Target is Animals.Rabbit)
+                {
+                    GameAnimals.rabbits.Remove((Animals.Rabbit)Target);
+                }
 
                 this.Die();
             }
         }
 
 
+        //public override void CheckEnvironment()
+        //{
+
+        //    Target killedAnimal = null;
+
+        //    if (Game.Targets == null)
+        //        return;
+
+        //    foreach (Target t in Game.Targets)
+        //    {
+        //        if (this.IsIntersection(t))
+        //        {
+        //            killedAnimal = t;
+        //            break;
+        //        }
+        //    }
+
+        //    if (killedAnimal != null)
+        //    {
+        //        killedAnimal.Die();
+        //        if (Game.hunter != null)
+        //            Game.hunter.HitCount++;
+
+        //        this.Die();
+        //    }
+        //}
     }
 }
