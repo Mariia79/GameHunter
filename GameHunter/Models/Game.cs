@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-
+using Animals;
 
 namespace GameHunter
 {
@@ -20,7 +20,7 @@ namespace GameHunter
         public static int BorderAlarmWidth = 200;
         public static Label lblInfo;
         public static bool IsRun = false;
-        public static PictureBox GameField;
+        public static Form GameField;
         public static int DeersCount = 12;
         public static int MinCount = 3;
         public static int MaxCount = 5;
@@ -34,7 +34,7 @@ namespace GameHunter
 
         static public Hunter hunter;
 
-        public static void InitGame(PictureBox p, Label l)
+        public static void InitGame(Form p, Label l)
         {
             Restart();
 
@@ -93,44 +93,7 @@ namespace GameHunter
 
         static bool CheckEndGame()
         {
-            string myMessage ="";
-            if (hunter != null && Targets != null)
-            {
-                myMessage = "Ammo = " + hunter.Ammo.ToString() + ", Hits = " 
-                            + hunter.HitCount.ToString() + ", T. count = " 
-                            + Targets.Count.ToString() + " T. down = " + TargetsAbroadCount.ToString()
-                + " wolf[0].life = "
-                    + Game.GetWolfsLife().ToString();
-                lblInfo.Text = myMessage;
-            }
-
-
-            if (hunter == null)
-            {
-                GameEndType = GameEndTypes.HunterIsDead;
-                lblInfo.Text = myMessage + ". Game is over! Hunter is dead!";
-                return true;
-            }
-            else
-            {
-
-                if (hunter.Ammo == 0)
-                {
-                    GameEndType = GameEndTypes.AmmoLost;
-                    lblInfo.Text = myMessage + ". Game is over! Ammo is Lost!";
-                    return true;
-                }
-
-                if (Targets.Count == 0)
-                {
-                    lblInfo.Text = myMessage + ". Game is over! Hunter Win!!!";
-                    GameEndType = GameEndTypes.Win;
-                    return true;
-                }
-
-            }
-
-
+          
             return false;
         }
 
@@ -184,6 +147,24 @@ namespace GameHunter
 
         }
 
+
+        public static void InitAnimalsGame(Form p)
+        {
+            Restart();
+
+
+            GameField = p;
+            GameField.Controls.Clear();
+
+            hunter = new Hunter(GetHunterPosition());
+            hunter.PreloadSkinImages();
+            hunter.ApplySkin();
+
+            IsRun = true;
+
+            OnChangeGame();
+
+        }
 
     }
 }

@@ -19,6 +19,8 @@ namespace GameHunter
         public bool IsCanMove = false;
         public Hunter(Point p) : base(p)
         {
+            Width = 50;
+            Height = 50;
             ImageFolder = "hunter";
             Direction = MoveDirection.Up;
             player = new System.Media.SoundPlayer(Environment.CurrentDirectory + "\\sounds\\shoot.wav");

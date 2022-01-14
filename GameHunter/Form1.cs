@@ -27,7 +27,7 @@ namespace GameHunter
         private void FormGameField_Load(object sender, EventArgs e)
         {
 
-            Game.InitGame(panelGameField, lblInfo);
+            Game.InitGame(this, lblInfo);
        
         }
 
@@ -53,7 +53,7 @@ namespace GameHunter
         private void btnStart_Click(object sender, EventArgs e)
         {
 
-            Game.InitGame(panelGameField, lblInfo);
+            Game.InitGame(this, lblInfo);
 
         }
 

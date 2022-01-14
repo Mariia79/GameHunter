@@ -52,13 +52,110 @@ namespace GameHunter
 
         private void OnTick(object sender, EventArgs e)
         {
-          
+            if (Game.IsRun == false)
+                return;
+
+            _sw.Restart();
+
+
+            Parallel.ForEach(GameAnimals.animals, (animal) =>
+            {
+                animal.Move();
+
+
+
+            });
+
+
+            for (int i = 0; i < GameAnimals.rabbits.Count; i++)
+            {
+                if (GameAnimals.rabbits[i].ToEat == true)
+                {
+
+                    if (GameAnimals.rabbits[i] is Animals.Hunter)
+                    {
+                        _timer.Stop();
+                        Game.IsRun = false;
+                        MessageBox.Show("Game over! Hunter is dead!");
+                        return;
+                    }
+
+                    GameAnimals.rabbits.RemoveAt(i);
+
+
+                }
+            }
+
+            for (int i = 0; i < GameAnimals.animals.Count; i++)
+            {
+                if (GameAnimals.animals[i].ToEat == true)
+                {
+                    GameAnimals.animals.RemoveAt(i);
+                }
+            }
+
+            _sw.Stop();
+            _renderTime = _sw.ElapsedMilliseconds;
+
+
+            Invalidate();
 
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            
+            if (Game.IsRun == false)
+                return;
+
+            if (_renderTime > 0)
+            {
+                e.Graphics.DrawString(
+                    string.Concat(1000 / _renderTime, " fps"),
+                    _font, Brushes.Black, 10, 10);
+            }
+
+            foreach (var animal in GameAnimals.animals)
+            {
+                int size = animal is Animals.Wolf ? 30 : 20;
+
+                if (animal is Animals.Hunter)
+                    size = 40;
+
+                float angle;
+                if (animal.Vect.X == 0)
+                    angle = 90f;
+                else
+                    angle = (float)(Math.Atan(animal.Vect.Y / animal.Vect.X) * (180 / Math.PI));
+
+                if (animal.Vect.X < 0) angle += 180f;
+
+                var matrix = new Matrix();
+
+                matrix.RotateAt((float)angle, new PointF(animal.Pos.X, animal.Pos.Y));
+                e.Graphics.Transform = matrix;
+
+
+                if (animal is Animals.Rabbit && animal is not Animals.Hunter)
+                {
+
+                    e.Graphics.FillEllipse(GameAnimals.RabbitBrush,
+                        new Rectangle(Convert.ToInt32(animal.Pos.X), Convert.ToInt32(animal.Pos.Y), size, size));
+                }
+
+
+                if (animal is Animals.Wolf)
+                {
+                    e.Graphics.FillEllipse(GameAnimals.WolfBrush,
+                        new Rectangle(Convert.ToInt32(animal.Pos.X), Convert.ToInt32(animal.Pos.Y), size, size));
+                }
+
+                if (animal is Animals.Hunter)
+                {
+                    e.Graphics.FillEllipse(GameAnimals.HunterBrush,
+                        new Rectangle(Convert.ToInt32(animal.Pos.X), Convert.ToInt32(animal.Pos.Y), 40, 40));
+                }
+
+            }
         }
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
@@ -94,7 +191,15 @@ namespace GameHunter
             for (int i = 0; i < NumWolfs; i++)
                 GameAnimals.animals.Add(new Animals.Wolf(ClientSize));
 
-            
+
+
+
+            Game.InitAnimalsGame(this);
+
+            GameAnimals.Hunter = new Animals.Hunter(ClientSize);
+            GameAnimals.Hunter.Pos.X = Game.hunter.Center.X;
+            GameAnimals.Hunter.Pos.Y = Game.hunter.Center.Y;
+
 
             GameAnimals.rabbits.Add(GameAnimals.Hunter);
             GameAnimals.animals.Add(GameAnimals.Hunter);
