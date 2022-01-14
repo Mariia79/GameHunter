@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\GameHunter\\GameHunter\\GameHunter.csproj",
+      "projectUniqueName": "D:\\Projects\\GameHunterSteering\\GameHunter\\GameHunter.csproj",
       "projectName": "GameHunter",
-      "projectPath": "D:\\Projects\\GameHunter\\GameHunter\\GameHunter.csproj",
+      "projectPath": "D:\\Projects\\GameHunterSteering\\GameHunter\\GameHunter.csproj",
       "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\GameHunter\\GameHunter\\obj\\",
+      "outputPath": "D:\\Projects\\GameHunterSteering\\GameHunter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

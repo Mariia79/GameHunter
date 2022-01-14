@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MWuEv6Y93gM8cbbIGmkbqpjA02Ba4RoF38VBYtSHLF+Mihd2ohIVehqBJdjb78vY8N1D97SdytzhrxNxT+7LtA==",
+  "dgSpecHash": "Ud8TFwZklzeyFH0UzxFypB6FEX68A8TsZ4StDvXAyjsDFakpraVpOF1tvbIR82fo4LwEQ92fiWzHg38xHFQdIw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\GameHunter\\GameHunter\\GameHunter.csproj",
+  "projectFilePath": "D:\\Projects\\GameHunterSteering\\GameHunter\\GameHunter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],

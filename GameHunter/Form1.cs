@@ -21,14 +21,14 @@ namespace GameHunter
         {
 
             InitializeComponent();
-            player = new System.Media.SoundPlayer(Environment.CurrentDirectory + "\\sounds\\birds.wav");
+       
         }
 
         private void FormGameField_Load(object sender, EventArgs e)
         {
 
             Game.InitGame(panelGameField, lblInfo);
-            player.Play();
+       
         }
 
         private void Game_OnGameChange(object? sender, EventArgs e)
