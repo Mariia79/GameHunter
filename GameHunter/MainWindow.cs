@@ -199,8 +199,7 @@ namespace GameHunter
             GameAnimals.Hunter = new Animals.Hunter(ClientSize);
             GameAnimals.Hunter.Pos.X = Game.hunter.Center.X;
             GameAnimals.Hunter.Pos.Y = Game.hunter.Center.Y;
-
-
+            
             GameAnimals.rabbits.Add(GameAnimals.Hunter);
             GameAnimals.animals.Add(GameAnimals.Hunter);
 
