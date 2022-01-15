@@ -40,8 +40,8 @@ namespace GameHunter
             Direction = MoveDirection.None;
             Left = p.X;
             Top = p.Y;
-            Width = 100;
-            Height = 100;
+            Width = 30;
+            Height = 30;
             BackColor = System.Drawing.Color.Transparent;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             Game.GameField.Controls.Add(this);

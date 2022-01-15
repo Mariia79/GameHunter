@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using Animals;
 
 namespace GameHunter
 {
@@ -19,6 +20,9 @@ namespace GameHunter
         public bool IsCanMove = false;
         public Hunter(Point p) : base(p)
         {
+            timer.Stop();
+            Width = 40;
+            Height = 40;
             ImageFolder = "hunter";
             Direction = MoveDirection.Up;
             player = new System.Media.SoundPlayer(Environment.CurrentDirectory + "\\sounds\\shoot.wav");
@@ -33,6 +37,12 @@ namespace GameHunter
             {
                 ApplySkin();
                 base.Run();
+
+                if (GameAnimals.Hunter != null)
+                {
+                    GameAnimals.Hunter.Pos.X = Game.hunter.Center.X;
+                    GameAnimals.Hunter.Pos.Y = Game.hunter.Center.Y;
+                }
             }
 
         }
@@ -56,7 +66,7 @@ namespace GameHunter
                     break;
                 case MoveDirection.Up:
                     Direction = MoveDirection.Down;
-                    Top =  1;
+                    Top = 1;
                     break;
 
                 case MoveDirection.Left:
@@ -68,34 +78,39 @@ namespace GameHunter
                     Top = Game.GameField.Width - Width - 1;
                     break;
             }
-            
+
             ApplySkin();
         }
         public void MoveHunter(KeyPressEventArgs e)
         {
-            
+
             if (e.KeyChar == 'w')
             {
                 Direction = MoveDirection.Up;
                 IsCanMove = true;
+                Run();
 
             }
             if (e.KeyChar == 'a')
             {
                 Direction = MoveDirection.Left;
                 IsCanMove = true;
-                
+                Run();
+
+
             }
             if (e.KeyChar == 'd')
             {
                 Direction = MoveDirection.Right;
                 IsCanMove = true;
+                Run();
 
             }
             if (e.KeyChar == 's')
             {
                 Direction = MoveDirection.Down;
                 IsCanMove = true;
+                Run();
 
             }
             if (e.KeyChar == 'b')
@@ -107,7 +122,7 @@ namespace GameHunter
             {
                 Game.hunter.IsCanMove = false;
             }
-            
+
         }
 
         public void Shoot()

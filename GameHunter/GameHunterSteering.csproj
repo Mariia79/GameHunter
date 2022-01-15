@@ -8,18 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Models\Deer.cs" />
-    <Compile Update="Models\Wolf.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <ProjectReference Include="..\Animals\AnimalsWalk.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Models\Sprite.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Models\Bullet.cs" />
     <Compile Update="Models\AutoMovedSprite.cs" />
-    <Compile Update="Models\Rabbit.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
