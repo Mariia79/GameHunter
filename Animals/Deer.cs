@@ -32,6 +32,12 @@ namespace Animals
                     continue;
                 }
 
+                if (animal is Hunter)
+                {
+                    if (d < InterationRadius) Vect += RotateRadians((Pos - animal.Pos), 1) * JumpFactor;
+                    continue;
+                }
+
 
                 if (d < FlockSpacing)
                 {

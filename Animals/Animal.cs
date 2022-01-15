@@ -33,7 +33,7 @@ namespace Animals
 
             Pos = new Vector2(
                 _rnd.Next(_fieldSize.Width),
-                _rnd.Next(_fieldSize.Height));
+                _rnd.Next(_fieldSize.Height - 300));
 
 
             Complex c = Complex.FromPolarCoordinates(_rnd.NextDouble() * Speed,
