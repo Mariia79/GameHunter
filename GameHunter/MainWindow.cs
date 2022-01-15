@@ -18,8 +18,8 @@ namespace GameHunter
     {
         private const int WindowWidth = 1000;
         private const int WindowHeight = 800;
-
         private const int NumRabbits = 30;
+        private const int NumDeers = 4;
         private const int NumWolfs = 3;
 
 
@@ -62,36 +62,14 @@ namespace GameHunter
             {
                 animal.Move();
 
-
-
             });
 
 
-            for (int i = 0; i < GameAnimals.rabbits.Count; i++)
+            if (GameAnimals.DeleteDiyngAnimalsAndCheckEndGame())
             {
-                if (GameAnimals.rabbits[i].ToEat == true)
-                {
-
-                    if (GameAnimals.rabbits[i] is Animals.Hunter)
-                    {
-                        _timer.Stop();
-                        Game.IsRun = false;
-                        MessageBox.Show("Game over! Hunter is dead!");
-                        return;
-                    }
-
-                    GameAnimals.rabbits.RemoveAt(i);
-
-
-                }
-            }
-
-            for (int i = 0; i < GameAnimals.animals.Count; i++)
-            {
-                if (GameAnimals.animals[i].ToEat == true)
-                {
-                    GameAnimals.animals.RemoveAt(i);
-                }
+                _timer.Stop();
+                Game.IsRun = false;
+                MessageBox.Show("Game over! Hunter is dead!");
             }
 
             _sw.Stop();
@@ -116,10 +94,7 @@ namespace GameHunter
 
             foreach (var animal in GameAnimals.animals)
             {
-                int size = animal is Animals.Wolf ? 30 : 20;
-
-                if (animal is Animals.Hunter)
-                    size = 40;
+                int size;
 
                 float angle;
                 if (animal.Vect.X == 0)
@@ -138,6 +113,7 @@ namespace GameHunter
                 if (animal is Animals.Rabbit && animal is not Animals.Hunter)
                 {
 
+                    size = 20;
                     e.Graphics.FillEllipse(GameAnimals.RabbitBrush,
                         new Rectangle(Convert.ToInt32(animal.Pos.X), Convert.ToInt32(animal.Pos.Y), size, size));
                 }
@@ -145,16 +121,25 @@ namespace GameHunter
 
                 if (animal is Animals.Wolf)
                 {
+                    size = 30;
                     e.Graphics.FillEllipse(GameAnimals.WolfBrush,
                         new Rectangle(Convert.ToInt32(animal.Pos.X), Convert.ToInt32(animal.Pos.Y), size, size));
                 }
 
                 if (animal is Animals.Hunter)
                 {
+                    size = 40;
                     e.Graphics.FillEllipse(GameAnimals.HunterBrush,
-                        new Rectangle(Convert.ToInt32(animal.Pos.X), Convert.ToInt32(animal.Pos.Y), 40, 40));
+                        new Rectangle(Convert.ToInt32(animal.Pos.X), Convert.ToInt32(animal.Pos.Y), size, size));
                 }
 
+
+                if (animal is Animals.Deer)
+                {
+                    size = 40;
+                    e.Graphics.FillEllipse(GameAnimals.DeerBrush,
+                        new Rectangle(Convert.ToInt32(animal.Pos.X), Convert.ToInt32(animal.Pos.Y), size, size));
+                }
             }
         }
 
@@ -180,30 +165,35 @@ namespace GameHunter
 
 
             // Animal setup
+            GameAnimals.deers = new List<Animals.Deer>();
             GameAnimals.rabbits = new List<Animals.Rabbit>();
+
             GameAnimals.animals = new List<Animals.Animal>();
+
+            for (int i = 0; i < NumDeers; i++)
+                GameAnimals.deers.Add(new Animals.Deer(ClientSize));
 
             for (int i = 0; i < NumRabbits; i++)
                 GameAnimals.rabbits.Add(new Animals.Rabbit(ClientSize));
 
+            GameAnimals.animals.AddRange(GameAnimals.deers);
             GameAnimals.animals.AddRange(GameAnimals.rabbits);
+
 
             for (int i = 0; i < NumWolfs; i++)
                 GameAnimals.animals.Add(new Animals.Wolf(ClientSize));
 
 
+            Game.InitAnimalsGame(this); // створюємо Hunter з неймспейсу GameHunter, що керований клавіатурою і стріляє
 
 
-            Game.InitAnimalsGame(this);
-
+            // створюємо невидмиго персонажа Хантер з бібліотеки GameAnimals що підтримує sterring 
             GameAnimals.Hunter = new Animals.Hunter(ClientSize);
             GameAnimals.Hunter.Pos.X = Game.hunter.Center.X;
             GameAnimals.Hunter.Pos.Y = Game.hunter.Center.Y;
-            
             GameAnimals.rabbits.Add(GameAnimals.Hunter);
+
             GameAnimals.animals.Add(GameAnimals.Hunter);
-
-
 
             _timer = new Timer();
             _timer.Tick += new EventHandler(OnTick);

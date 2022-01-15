@@ -16,9 +16,11 @@ namespace Animals
 
         public bool ToEat = false;
 
-        protected const int BorderPadding = 50;
+        public bool IsFoodToWolfs = false;
+
+        protected const int BorderPadding = 40;
         protected Single Speed = 10f;
-        protected Single InterationRadius = 50f;// суспільни рух у напрямку
+        protected Single InterationRadius = 50f;
 
         private Size _fieldSize;
         private static Random _rnd = new Random();
@@ -46,11 +48,23 @@ namespace Animals
 
         protected void CheckFieldBorder()
         {
+            int step = 20;
+
+
+            if (Pos.X - step < 0
+                && Pos.Y - step < 0
+                && Pos.X + step > _fieldSize.Width
+                && Pos.Y + step > _fieldSize.Height)
+
+            {
+                ToEat = true;
+            }
+
 
             if (Pos.X < BorderPadding)
                 Vect.X += BorderPadding - Pos.X;
 
-            if (Pos.Y < BorderPadding) 
+            if (Pos.Y < BorderPadding)
                 Vect.Y += BorderPadding - Pos.Y;
 
             if (Pos.X > _fieldSize.Width - BorderPadding)
@@ -58,6 +72,8 @@ namespace Animals
 
             if (Pos.Y > _fieldSize.Height - BorderPadding)
                 Vect.Y += _fieldSize.Height - BorderPadding - Pos.Y;
+
+
 
         }
 
@@ -71,7 +87,7 @@ namespace Animals
                 Vect *= Speed / length;
 
             Pos += Vect;
-      
+
 
         }
     }

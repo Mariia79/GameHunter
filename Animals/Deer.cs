@@ -5,15 +5,16 @@ using System.Numerics;
 
 namespace Animals
 {
-    public class Rabbit : Animal
+    public class Deer : Animal
     {
-        private const Single FlockSpacing = 50f;
-        private const Single JumpFactor = 50f;
+        private const Single FlockSpacing = 30f;
+        private const Single JumpFactor = 45f;
 
 
-        public Rabbit(Size fieldSize) : base(fieldSize)
+        public Deer(Size fieldSize) : base(fieldSize)
         {
             IsFoodToWolfs = true;
+            InterationRadius = 200;
         }
 
         public override void Move()
@@ -37,12 +38,15 @@ namespace Animals
                     Vect += (Pos - animal.Pos) * 15;
                 }
 
-                else if (d < InterationRadius)
+                else
+
+                if (animal is Deer && d < InterationRadius)
                 {
                     Vect += (animal.Pos - Pos) * 0.1f;
                 }
 
-                if (d < InterationRadius)
+
+                if (animal is Deer && d < InterationRadius)
                 {
                     Vect += animal.Vect * 0.5f;
                 }

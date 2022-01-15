@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animal.cs" />
+    <Compile Include="Deer.cs" />
     <Compile Include="GameAnimals.cs" />
     <Compile Include="Hunter.cs" />
     <Compile Include="Wolf.cs" />

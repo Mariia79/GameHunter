@@ -10,11 +10,10 @@ using Animals;
 
 namespace GameHunter
 {
-
     public class Hunter : AutoMovedSprite
     {
         System.Media.SoundPlayer player;
-        public int Ammo = 60;
+        public int Ammo = 100;
         public int HitCount = 0;
 
         public bool IsCanMove = false;
@@ -48,12 +47,10 @@ namespace GameHunter
         }
         public override void Die()
         {
-
             Game.GameField.Controls.Remove(this);
             Game.hunter = null;
             base.Die();
         }
-
 
         public virtual void ChangeDirection()
         {
